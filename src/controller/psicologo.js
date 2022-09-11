@@ -45,7 +45,7 @@ const psicologoController = {
 
     return res.json(psicologoAtualizar);
   },
-  putPsicologo: async (req, res) => {
+  delPsicologo: async (req, res) => {
     const { id } = req.params;
     await psicologo.destroy({
       where: {
