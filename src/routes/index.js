@@ -3,7 +3,8 @@ const routes = express.Router();
 const psicologoController = require("../controller/psicologo");
 const pacienteController = require("../controller/paciente");
 
-//rotas psicologo
+//rotas psicologos
+
 routes.get("/psicologo", psicologoController.listAll);
 routes.get("/psicologo/:id", psicologoController.listOne);
 routes.post("/psicologo", psicologoController.postPsicologo);
