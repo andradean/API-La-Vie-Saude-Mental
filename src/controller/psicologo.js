@@ -8,7 +8,8 @@ const psicologoController = {
 
       return res.status(200).json(psicologos);
     } catch (error) {
-      res.status(400);
+      console.log(error);
+      res.status(400).json("erro, chame o suporte!");
     }
   },
   postPsicologo: async (req, res) => {

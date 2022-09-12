@@ -1,12 +1,12 @@
 const atendimentos = require("./atendimentos");
-const pacientes = require("./pacientes");
-const psicologos = require("./psicologos");
+const paciente = require("./pacientes");
+const psicologo = require("./psicologos");
 
-atendimentos.belongsTo(pacientes, {foreignKey: 'pacientes_id'});
-atendimentos.belongsTo(psicologos, {foreignKey: 'psicologos_id'});
+atendimentos.belongsTo(paciente, { foreignKey: "pacientes_id" });
+atendimentos.belongsTo(psicologo, { foreignKey: "psicologos_id" });
 
 module.exports = {
   atendimentos,
-  pacientes,
-  psicologos
+  paciente,
+  psicologo,
 };
