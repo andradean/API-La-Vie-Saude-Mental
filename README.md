@@ -4,6 +4,7 @@ Hands On #3!
 La Vie - clínica
 
 sobre:
+
 Um grupo de psicólogos se juntaram e criaram a
 clínica La Vie - Saúde Mental que oferece
 diversos tipos de terapia.
