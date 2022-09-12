@@ -17,25 +17,30 @@ const atendimentos = db.define(
     observacao: {
       type: DataTypes.STRING,
     },
+    pacientes_id: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: "pacientes",
+        key: "id"
+      } 
+    },
+    psicologos_id: {
+    type: DataTypes.INTEGER,
+    references:{
+      model: "psicologos",
+      key: "id"
+    } 
+    },
     createdAt: {
       type: DataTypes.DATE,
     },
     updatedAt: {
       type: DataTypes.DATE,
     },
-    pacientes_id: {
-        type: DataTypes.INTEGER,  
-  },
-  psicologos_id: {
-    type: DataTypes.INTEGER,
-  },
 },
   {
     tableName: "psicologos",
   }
 );
-
-atendimentos.belongsTo(pacientes, {foreignKey: 'pacientes_id'});
-atendimentos.belongsTo(psicologos, {foreignKey: 'psicologos_id'})
 
 module.exports = psicologos;
