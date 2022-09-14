@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const DB_NAME = "LaVieDataBase";
 const DB_USER = "root";
-const DB_PASS = "";
+const DB_PASS = "99332346Peu";
 const DB_CONFIG = {
   dialect: "mysql",
   host: "localhost",
