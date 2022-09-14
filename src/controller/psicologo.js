@@ -1,5 +1,6 @@
 const { where } = require("sequelize");
 const { psicologo } = require("../models");
+const bcrypt = require("bcrypt");
 
 const psicologoController = {
   listAll: async (req, res) => {
@@ -15,10 +16,19 @@ const psicologoController = {
   postPsicologo: async (req, res) => {
     try {
       const { nome, email, senha, aprentacao } = req.body;
+      const novasenha = bcrypt.hashSync(senha, 10);
+      const emailpsicologo = await psicologo.count({
+        where: {email: email},
+      })
+
+      if (emailpsicologo) {
+        return res.status(401).json({error: "Email já existente"});
+      }
+
       const novoPsicologo = await psicologo.create({
         nome,
         email,
-        senha,
+        senha: novasenha,
         aprentacao,
       });
 
@@ -89,6 +99,7 @@ const psicologoController = {
       return res.status(400).send("bad request!");
     }
   },
+  
 };
 
 module.exports = psicologoController;
