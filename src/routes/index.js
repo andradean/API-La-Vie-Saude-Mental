@@ -3,8 +3,10 @@ const routes = express.Router();
 const psicologoController = require("../controller/psicologo");
 const pacienteController = require("../controller/paciente");
 
-//rotas psicologos
+//validators
+const authValidator = require("../validations/login");
 
+//rotas psicologos
 routes.get("/psicologo", psicologoController.listAll);
 routes.get("/psicologo/:id", psicologoController.listOne);
 routes.post("/psicologo", psicologoController.postPsicologo);
@@ -17,5 +19,8 @@ routes.get("/paciente/:id", pacienteController.listOnepaciente);
 routes.post("/paciente", pacienteController.postPaciente);
 routes.put("/paciente/:id", pacienteController.putPaciente);
 routes.delete("/paciente/:id", pacienteController.delPaciente);
+
+//rotas login
+routes.post("/login", authValidator, authController.login);
 
 module.exports = routes;

@@ -1,7 +1,7 @@
 const db = require("../database");
 const { DataTypes } = require("sequelize");
 const pacientes = require("./pacientes");
-const psicologos = require("./psicologos")
+const psicologos = require("./psicologos");
 
 const atendimentos = db.define(
   "atendimentos",
@@ -12,24 +12,24 @@ const atendimentos = db.define(
       autoIncrement: true,
     },
     data_atendimento: {
-        type: DataTypes.DATE,
+      type: DataTypes.DATE,
     },
     observacao: {
       type: DataTypes.STRING,
     },
     pacientes_id: {
       type: DataTypes.INTEGER,
-      references:{
+      references: {
         model: "pacientes",
-        key: "id"
-      } 
+        key: "id",
+      },
     },
     psicologos_id: {
-    type: DataTypes.INTEGER,
-    references:{
-      model: "psicologos",
-      key: "id"
-    } 
+      type: DataTypes.INTEGER,
+      references: {
+        model: "psicologos",
+        key: "id",
+      },
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -37,10 +37,10 @@ const atendimentos = db.define(
     updatedAt: {
       type: DataTypes.DATE,
     },
-},
+  },
   {
-    tableName: "psicologos",
+    tableName: "atendimento",
   }
 );
 
-module.exports = psicologos;
+module.exports = atendimentos;
