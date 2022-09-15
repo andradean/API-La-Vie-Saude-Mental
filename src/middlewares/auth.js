@@ -1,18 +1,8 @@
-const { psicologos } = require("../models");
+const { expressjwt: jwt } = require("express-jwt");
 
-module.exports = async (req, res, next) => {
-  if (req.auth) {
-    const psicologo = await psicologos.findByPk(req.auth.id);
-    if (!psicologo) {
-      next({
-        status: 401,
-        name: "UnauthorizedError",
-        inner: {
-          message: "Código inválido",
-        },
-      });
-    }
-  }
+const secret = require("../configs/secret");
 
-  next();
-};
+module.exports = jwt({
+  secret: secret.key,
+  algorithms: ["HS256"],
+});

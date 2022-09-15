@@ -1,37 +1,32 @@
-const { where } = require("sequelize");
-const { psicologo } = require("../models");
-const bcrypt = require("bcryptjs");
-const secret = require("../configs/secret");
 const jwt = require("jsonwebtoken");
+const secret = require("../configs/secret");
+const bcrypt = require("bcrypt");
+const psicologo = require("../models/psicologos");
+const login = require("../validations/auth/login");
 
 const authController = {
-  Login: async (req, res) =>{
-    const {email, senha} = req.body;
-    const psicologo = await psicologo.findOne({
-      where: {email: email},
-    })
-
-    if (!psicologo) {
-      return res.status(400).json({error: "Email já cadastrado"});
+  async login(req, res) {
+    const { email, senha } = req.body;
+    try {
+      const user = await psicologo.findOne({
+        where: { email: email },
+      });
+      if (!bcrypt.compareSync(senha, user.senha)) {
+        return res.status(401).json("senha incorreta");
+      }
+      const token = jwt.sign(
+        {
+          psicologo_id: user.id,
+          email: user.email,
+          nome: user.nome,
+        },
+        secret.key
+      );
+      return res.status(200).json(token);
+    } catch {
+      console.log(error);
     }
+  },
+};
 
-    if (!bcrypt.compareSync(senha, psicologo.senha)){
-      return res.status(400).json({error: "Senha incorreta"});
-    }
-
-    const user = {
-      id: psicologo.id,
-      nome: psicologo.nome,
-      email: psicologo.email,
-    };
-
-    const token = jwt.sign(user, secret.key);
-
-    return res.json({
-      token,
-      user,
-    });
-  }
-  };
-
-  module.exports = authController;
+module.exports = authController;

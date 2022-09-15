@@ -1,1 +1,3 @@
-module.exports = { key: 'lavie13' };
+module.exports = {
+  key: "lavie13",
+};

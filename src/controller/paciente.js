@@ -1,5 +1,5 @@
 const { where } = require("sequelize");
-const { pacientes } = require("../models");
+const { paciente } = require("../models");
 
 const pacienteController = {
   listAllpaciente: async (req, res) => {

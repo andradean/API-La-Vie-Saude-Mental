@@ -2,12 +2,9 @@ const express = require("express");
 const routes = express.Router();
 const psicologoController = require("../controller/psicologo");
 const pacienteController = require("../controller/paciente");
+const authValidation = require("../validations/auth/login");
 const authController = require("../controller/authcontroller");
-
-//validators
-const authValidator = require("../validations/login");
-const login = require("../validations/login");
-
+const authMiddlewares = require("../middlewares/auth");
 //rotas psicologos
 routes.get("/psicologo", psicologoController.listAll);
 routes.get("/psicologo/:id", psicologoController.listOne);
@@ -23,6 +20,6 @@ routes.put("/paciente/:id", pacienteController.putPaciente);
 routes.delete("/paciente/:id", pacienteController.delPaciente);
 
 //rotas login
-routes.post("/login", authValidator, authController.Login);
+routes.post("/login", authValidation, authController.login);
 
 module.exports = routes;
