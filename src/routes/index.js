@@ -5,6 +5,8 @@ const pacienteController = require("../controller/paciente");
 const authValidation = require("../validations/auth/login");
 const authController = require("../controller/authcontroller");
 const authMiddlewares = require("../middlewares/auth");
+const atendimentoController = require("../controller/atendimento");
+
 //rotas psicologos
 routes.get("/psicologo", psicologoController.listAll);
 routes.get("/psicologo/:id", psicologoController.listOne);
@@ -21,5 +23,11 @@ routes.delete("/paciente/:id", pacienteController.delPaciente);
 
 //rotas login
 routes.post("/login", authValidation, authController.login);
+
+//rotas atendimento
+routes.get("/atendimentos", atendimentoController.listAllatendimento);
+routes.get("/atendimentos/:id", atendimentoController.listOneatendimento); 
+routes.post("/atendimento/criar", atendimentoController.postAtendimento);
+
 
 module.exports = routes;
