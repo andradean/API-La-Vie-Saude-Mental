@@ -1,17 +1,47 @@
 # La Vie - Saúde Mental
 
-Hands On #3!
-La Vie - clínica
+![lavie](https://user-images.githubusercontent.com/109110750/190664207-742d5d1a-e0e7-45e4-9b25-af8cb41cb8c1.png)
 
-sobre:
 
-Um grupo de psicólogos se juntaram e criaram a
-clínica La Vie - Saúde Mental que oferece
-diversos tipos de terapia.
 
-Para ajudar nos atendimentos, eles precisam de uma API que permita criar registros de
-psicólogos, pacientes e prontuários.
+# Hands on 3
 
-desafio:
-Neste desafio aprendemos a criar uma API do zero desde o banco de dados ao CRUD dos psicólogos e pacientes
+projeto:
+
+Nesse projeto foi desenvolvido uma API que permite cadastrar psicólogos, pacientes e registrar atendimentos na clínica La vie - saúde mental
+
+
+# Funcionalidades
+
+:one:- Login com autenticação 
+
+:two:- cadastro dos  psicólogos, pacientes e atendimentos (POST)
+
+:three:- atualizar dados dos psicólogos, pacientes e atendimentos (PUT)
+
+:four:- apagar todos os dados dos psicólogos, pacientes e atendimentos (DELETE)
+
+:five:- listar todos os dados dos psicólogos, pacientes e atendimentos (GET)
+
+# Tecnologias utilizadas
+
+:arrow_right: Javascript
+
+:arrow_right: NodeJS
+
+:arrow_right: Express
+
+:arrow_right: Mysql
+
+# Desenvoldedores 
+
+https://github.com/andradean
+
+https://github.com/FDygas
+
+https://github.com/josepps
+
+https://github.com/RenanJello
+
+
 
