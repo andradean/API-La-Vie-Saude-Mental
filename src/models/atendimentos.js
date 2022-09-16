@@ -39,7 +39,7 @@ const atendimentos = db.define(
     },
   },
   {
-    tableName: "atendimento",
+    tableName: "atendimentos",
   }
 );
 
