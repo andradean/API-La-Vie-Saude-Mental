@@ -27,6 +27,6 @@ routes.post("/login", authValidation, authController.login);
 //rotas atendimento
 routes.get("/atendimentos", atendimentoController.listAllatendimento);
 routes.get("/atendimentos/:id", atendimentoController.listOneatendimento);
-routes.post("/atendimentos", atendimentoController.postAtendimento);
+routes.post("/atendimentos", auth, atendimentoController.postAtendimento);
 
 module.exports = routes;
